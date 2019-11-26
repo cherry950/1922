@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>列表渲染</title>
+  <script src="../base/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+     <ul>
+       <!-- <li v-for="item in list">{{item }}</li> -->
+       <!-- <li v-for="(item,index) in list">{{index}}_{{item}}</li> -->
+       <!-- <li v-for="(item,index) of list">{{index}}_{{item}}</li> -->
+       <!-- <li v-for='(value,key,index) in obj'>{{`${index}.${key}:${value}`}}</li> -->
+       <!-- <li v-for='item in 100'>{{item}}</li> -->
+       <li v-for='item in string'>{{item}}</li>
+     </ul>
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    list:[12,3,4,5,6,7,8],
+    obj:{us:123,ps:456},
+    string:'sfjlsfjslfjdslfjsld'
+  }
+})
+/*
+列表渲染
+指令 directive v-xxx
+v-for ='(item,index) in list ' item 渲染的每一项  list 要渲染的数据  index 索引
+*/ 
+</script>
+</body>
+</html>

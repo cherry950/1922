@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件渲染</title>
+  <script src="../base/vue.js"></script>
+  <style>
+    .test{
+      background: red;
+      height: 100px;
+      width: 100px;
+    }
+    .test1{
+      background: blue;
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+     <div v-if = 'show' class="test">
+
+     </div>
+     <div v-else class="test1">
+
+      </div>
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+     show:false
+  }
+})
+/*
+控制一个元素显示隐藏 
+v-if   控制元素的渲染   
+v-show  通过 dispaly ：none
+
+*/ 
+</script>
+</body>
+</html>
