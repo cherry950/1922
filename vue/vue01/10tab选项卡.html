@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件渲染</title>
+  <script src="../base/vue.js"></script>
+  <style>
+    *{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  .box{
+    width: 500px;
+    height: 500px;
+  }
+  .nav{
+    width: 500px;
+    height: 80px;
+    border: 1px solid red;
+    font-size: 0;
+    
+  }
+  li{
+    font-size: 16px;
+    display: inline-block;
+    width: 125px;
+    height: 80px;
+    background: skyblue;
+  }
+  .sel{
+    background: lightgreen;
+  }
+  .content{
+    width: 500px;
+    height:420px;
+    background: #ab956d;
+  }
+  </style>
+</head>
+<body>
+  <div id='app'>
+     <div class='box'>
+        <ul class='nav'>
+          <li v-for='(item,index) in list'
+              v-bind:class='index===selIndex?"sel":""'
+              v-on:click="toggle(index)"
+          >{{item}}</li>
+        </ul>
+        <div class='content' 
+             v-if="selIndex===index"
+             v-for='(item,index) in list'>
+          {{item}}
+        </div>
+     </div> 
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    list:['红色高跟鞋','真实魔鬼游戏','贞子大战伽椰子','咒怨'],
+    selIndex:0
+  },
+  methods: {
+    toggle(index){
+      this.selIndex=index
+    }
+  },
+})
+/*
+1.创建导航
+2.切换导航
+3.内容区域发生变化
+*/
+</script>
+</body>
+</html>

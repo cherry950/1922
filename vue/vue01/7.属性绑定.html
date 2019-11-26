@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件渲染</title>
+  <script src="../base/vue.js"></script>
+  <style>
+    .test{
+      background: red;
+      height: 100px;
+      width: 100px;
+    }
+    .test1{
+      background: blue;
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+     <div  v-bind:class="toggle?'test1':'test'">
+
+     </div>
+     <img :src="toggle?imgs[0]:imgs[1]" alt="">
+     <button @click='clickEvent'>toggle</button>
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+     toggle:false,
+     imgs:['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=981787458,2229384111&fm=26&gp=0.jpg',
+      'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=296522191,8377545&fm=26&gp=0.jpg'
+      ]
+  },
+  methods: {
+    clickEvent(){
+      this.toggle=!this.toggle
+    }
+  }
+})
+/*
+v-bind:属性名
+标签属性 想用表达式 或者变量  v-bind 属性绑定
+:class = v-bind:class
+src class href
+*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件渲染</title>
+  <script src="../base/vue.js"></script>
+  <style>
+    .test{
+      background: red;
+      height: 100px;
+      width: 100px;
+    }
+    .test1{
+      background: blue;
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+      <div v-text='string'>
+
+      </div>
+      <hr>
+      <div v-html='string'>
+
+      </div>
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    string:'<h3>呵呵哒</h3>'
+  }
+     
+})
+/*
+v-text
+v-html
+*/
+
+</script>
+</body>
+</html>

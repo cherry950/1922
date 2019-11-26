@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件渲染</title>
+  <script src="../base/vue.js"></script>
+  <style>
+  .blue{
+    background: blue;
+  }
+  .red{
+    background: red;
+  }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <input type="text" ref='hehe'> <button v-on:click='add'>add</button>
+     <ul>
+       <li v-for='(item,index) in list'
+           v-bind:class="item.state?'blue':'red'"
+       >
+         {{item.msg}}
+          <button v-on:click='del(index)'>del</button>
+          <span v-if="item.state">已完成</span>
+          <button v-else v-on:click='update(index)'>完成</button>
+        </li>
+     </ul>
+  </div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+     list:[{msg:'今晚看咒怨',state:true},
+     {msg:'明晚寄生虫',state:false},
+     {msg:'与神同行',state:true}]
+  },
+  methods: {
+    add(){
+      // ref 可以绑定一个元素 通过 this.$refs 进行获取
+      let value=this.$refs.hehe.value
+      console.log(this)
+      this.list.push({msg:value,state:false})
+    },
+    del(index){
+      this.list.splice(index,1)
+      console.log('删除',index)
+    },
+    update(index){
+      this.list[index].state=true
+    }
+  },
+})
+/*
+todolist
+1.渲染列表 v
+2.添加事项 v
+3.完成事项 v
+4.删除事项 v
+6.全部 未完成  已完成 
+7.不同的状态不同的背景
+作业 
+1.9*9乘法表 隔行变色
+2.表格  
+  1.隔行变色 红绿
+  2.鼠标滑过 有特效
+  3.下拉菜单  红绿 白紫 绿蓝
+3.todolist 在写一遍
+*/
+</script>
+</body>
+</html>
